@@ -3,11 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	table,th,td {
+		border: 1px solid black;
+	}
+</style>
 </head>
 <body>
 	<h2>Hello from View One!</h2>
-	<h3>Name: <span th:text="${user.name}"></span></h3>
-	<h3>Last Name: <span th:text="${user.lastName}"></span></h3>
-	<h3>Email: <span th:text="${user.email}"></span></h3>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="user: ${users}">
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.lastName}"></td>
+			<td th:text="${user.email}"></td>
+		</tr>
+	</table>
 </body>
 </html>

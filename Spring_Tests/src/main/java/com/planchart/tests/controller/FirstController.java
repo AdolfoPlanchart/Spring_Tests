@@ -1,5 +1,8 @@
 package com.planchart.tests.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +17,18 @@ public class FirstController {
 
 	@GetMapping("/MethodOne")
 	public String MethodOne(Model model) {
-		model.addAttribute("user", new User("Adolfo","Planchart","aplanchart27@gmail.com"));
+		List<User> list = new ArrayList<User>();
+		list.add(new User(
+					"Adolfo",
+					"Planchart",
+					"aplanchart27@gmail.com"
+				));
+		list.add(new User(
+				"Nathalia",
+				"Aguilera",
+				"nathaguilera1999@gmail.com"
+			));
+		model.addAttribute("users", list);
 		return "view_one";
 	}
 	
